@@ -28,4 +28,5 @@ jobs:
     environment: Release
     steps:
     - uses: actions/checkout@v2
+    - name: Wait for approval 
       run: echo "wait for approval" 
