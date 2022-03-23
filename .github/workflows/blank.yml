@@ -22,11 +22,19 @@ jobs:
     - name: Run tests on previously built binary
       run: echo "Run tests"
 
+  pre-release:
+    runs-on: ubuntu-latest
+    environment: Release
+    needs: [ build, tests ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Wait for approval 
+      run: echo "wait for approval" 
 
   release:
     runs-on: ubuntu-latest
     environment: Release
-    needs: [ build, tests ]
+    needs: [ build, tests, pre-release ]
     steps:
     - uses: actions/checkout@v2
     - name: Wait for approval 
