@@ -24,7 +24,7 @@ jobs:
 
   pre-release:
     runs-on: ubuntu-latest
-    environment: Release
+    environment: Pre-release
     needs: [ build, tests ]
     steps:
     - uses: actions/checkout@v2
